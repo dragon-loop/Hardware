@@ -167,7 +167,7 @@ void setup() {
   //fona.setNetworkSettings(F("your APN"), F("your username"), F("your password"));
   //fona.setNetworkSettings(F("m2m.com.attz")); // For AT&T IoT SIM card
   //fona.setNetworkSettings(F("telstra.internet")); // For Telstra (Australia) SIM card - CAT-M1 (Band 28)
-  fona.setNetworkSettings(F("h2g2")); // For Google Fi SIM card
+  fona.setNetworkSettings(F("h2g2")); // For Google Fi SIM card - still needs activation
 
   // Optionally configure HTTP gets to follow redirects over SSL.
   // Default is not to follow SSL redirects, however if you uncomment
