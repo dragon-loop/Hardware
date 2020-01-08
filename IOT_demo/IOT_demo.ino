@@ -221,15 +221,15 @@ void setup() {
   // network.  Contact your provider for the exact APN, username,
   // and password values.  Username and password are optional and
   // can be removed, but APN is required.
-  //fona.setNetworkSettings(F("your APN"), F("your username"), F("your password"));
-  //fona.setNetworkSettings(F("m2m.com.attz")); // For AT&T IoT SIM card
-  //fona.setNetworkSettings(F("telstra.internet")); // For Telstra (Australia) SIM card - CAT-M1 (Band 28)
+  // fona.setNetworkSettings(F("your APN"), F("your username"), F("your password"));
+  // fona.setNetworkSettings(F("m2m.com.attz")); // For AT&T IoT SIM card
+  // fona.setNetworkSettings(F("telstra.internet")); // For Telstra (Australia) SIM card - CAT-M1 (Band 28)
   fona.setNetworkSettings(F("hologram")); // For Hologram SIM card
 
   // Optionally configure HTTP gets to follow redirects over SSL.
   // Default is not to follow SSL redirects, however if you uncomment
   // the following line then redirects over SSL will be followed.
-  //fona.setHTTPSRedirect(true);
+  // fona.setHTTPSRedirect(true);
 
   /*
   // Other examples of some things you can set:
@@ -652,6 +652,8 @@ void moduleSetup() {
   uint8_t imeiLen = fona.getIMEI(imei);
   if (imeiLen > 0) {
     Serial.print("Module IMEI: "); Serial.println(imei);
+  } else {
+    Serial.print("Error getting IMEI number");
   }
 }
 

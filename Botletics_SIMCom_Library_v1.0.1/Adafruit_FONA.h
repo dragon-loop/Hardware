@@ -82,9 +82,6 @@ class Adafruit_FONA : public FONAStreamType {
   boolean begin(FONAStreamType &port);
   uint8_t type();
 
-  // stuff from github
-  boolean jamesStart();
-
   // Stream
   int available(void);
   size_t write(uint8_t x);

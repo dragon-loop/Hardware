@@ -3269,33 +3269,3 @@ boolean Adafruit_FONA_3G::parseReply(FONAFlashStringPtr toreply,
 
   return true;
 }
-
-// everything below is from the additions file from https://github.com/baldengineer/fona-gps-tracker
-boolean Adafruit_FONA::jamesStart() {
-  getReply(F("AT+COPS?"));
-  getReply(F("AT+CSQ"));
-
-  sendCheckReply(F("AT+CIPSHUT"), F("SHUT OK"), 20000);
-  //attach to GPRS
-  if (! sendCheckReply(F("AT+CGATT=1"), ok_reply, 10000))
-   return false;
-     
-     // single connection at a time
-  if (! sendCheckReply(F("AT+CIPMUX=0"), F("OK"), 10000)) return false;
-
-
-   // manually read data
-  if (! sendCheckReply(F("AT+CIPRXGET=1"), F("OK"), 10000)) return false;
-
-   //AT+CSTT command to set APN  
- sendCheckReply(F("AT+CSTT=\"hologram\",\"\",\"\""), F("OK"), 10000);
- // sendCheckReply(F("AT+CSTT=\"wholesale\",\"\",\"\""), F("OK"), 10000);
-
-//bring up wireless connection (GPRS)     
-  if (! sendCheckReply(F("AT+CIICR"), F("OK"), 10000))  return false;
-
-   //return assigned ip address. This is necessary, otherwise "operation not allowed" error
-  getReply(F("AT+CIFSR"));
- 
-  return true;
-}
